@@ -189,13 +189,13 @@
         }
 
         .admin-card {
-            background: var(--tg-theme-secondary-bg-color, #232f3b) !important;
-            border: 1px solid #232f3b;
+            background: linear-gradient(135deg, #5288c1 0%, #62bcf9 100%) !important;
+            border: 1px solid #62bcf9;
         }
 
         .user-card {
-            background: var(--tg-theme-secondary-bg-color, #232f3b);
-            border: 1px solid #232f3b;
+            background: var(--tg-theme-secondary-bg-color, #222e3a);
+            border: 1px solid #374151;
         }
 
         .profile-buttons {
@@ -332,7 +332,10 @@
             transition: all 0.3s ease;
         }
 
-
+        .profile-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-1px);
+        }
 
         .profile-btn:active {
             transform: scale(0.98);
@@ -383,12 +386,12 @@
 
         /* Currency badges */
         .currency-badge.stars {
-            background-color: #2c3c4b;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
             color: white;
         }
 
         .currency-badge.usd {
-            background-color: #293947;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
         }
     </style>
@@ -401,12 +404,12 @@
             <!-- Home Page -->
             <div id="home-page" class="page active">
                 <!-- Advertisement Carousel -->
-                <div id="ads-carousel" class="swiper  h-32 mt-10 rounded-2xl">
+                <div id="ads-carousel" class="swiper h-48 mb-4">
                     <div class="swiper-wrapper" id="ads-wrapper">
-                        <div class="swiper-slide"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8IyX05pgVLvGQ_DqzdNnQ7ir6NwJFp68duw&s"  class="w-full rounded-2xl h-full object-cover"></div>
-                        <div class="swiper-slide"><img src="https://i.ytimg.com/vi/gJYMuGWMUAY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCJ9oQnZR6ZsRLKnlJSWd9-NNsr-A" class="w-full h-full object-cover rounded-2xl"></div>
+                        <div class="swiper-slide"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%20From%202025-08-04%2022-02-57-2djYOOkgifShDVdt0XnT0yWYm5lJwW.png" class="w-full h-full  class="w-full h-full object-cover"></div>
+                        <div class="swiper-slide"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-muPMwlHUma1EjXee8zwZfu43AtpdPJ.png" class="w-full h-full object-cover"></div>
                     </div>
-                    
+                    <div class="swiper-pagination"></div>
                 </div>
                 
                 <!-- Categories -->
@@ -524,7 +527,7 @@
                 
                 <div class="px-4 flex flex-col gap-3 profile-buttons">
                     <!-- Sell Account Button -->
-                    <div id="sell-account-btn" class="profile-btn special p-4 rounded-xl flex justify-between items-center cursor-pointer ">
+                    <div id="sell-account-btn" class="profile-btn special p-4 rounded-xl flex justify-between items-center cursor-pointer active:scale-[0.98]">
                         <div class="flex items-center gap-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.467-.22-2.121-.659-1.172-.879-1.172-2.303 0-3.182C10.464 7.719 11.232 7.5 12 7.5c.768 0 1.536.22 2.121.659l.879-.659" />
@@ -654,274 +657,4 @@
                         <input type="number" id="target-user-id" placeholder="Telegram ID" class="w-full bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
                         <select id="role-select" class="w-full bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
                             <option value="user">Foydalanuvchi</option>
-                            <option value="supporter_admin">Qo'llab-quvvatlovchi Admin</option>
-                            <option value="buyer_admin">Xaridor Admin</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                        <button onclick="assignRole()" class="w-full bg-tg-button text-white font-bold py-2 rounded-lg">Rol tayinlash</button>
-                    </div>
-                </div>
-
-                <!-- System Settings Section -->
-                <div class="admin-section">
-                    <h3 class="font-bold mb-4">⚙️ Tizim sozlamalari</h3>
-                    <div class="space-y-3">
-                        <label class="flex items-center justify-between">
-                            <span>Admin orqali xarid</span>
-                            <input type="checkbox" id="admin-purchase-toggle" class="rounded">
-                        </label>
-                        <div class="flex gap-2">
-                            <input type="number" id="buyer-admin-cost" placeholder="Admin yordam narxi" class="flex-1 bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
-                            <span class="flex items-center text-sm text-tg-hint">yulduz</span>
-                        </div>
-                        <div class="flex gap-2">
-                            <input type="number" id="listing-cost" placeholder="E'lon narxi" class="flex-1 bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
-                            <span class="flex items-center text-sm text-tg-hint">yulduz</span>
-                        </div>
-                        <div class="flex gap-2">
-                            <input type="number" id="commission-rate" placeholder="Komissiya foizi" class="flex-1 bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
-                            <span class="flex items-center text-sm text-tg-hint">%</span>
-                        </div>
-                        <button onclick="updateSystemSettings()" class="w-full bg-green-600 text-white font-bold py-2 rounded-lg">Sozlamalarni yangilash</button>
-                    </div>
-                </div>
-
-                <!-- Ad Package Management -->
-                <div class="admin-section">
-                    <h3 class="font-bold mb-4">📢 Reklama paketlari</h3>
-                    <div class="space-y-3">
-                        <div class="grid grid-cols-3 gap-2">
-                            <input type="number" id="basic-ad-price" placeholder="Asosiy narx" class="bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
-                            <input type="number" id="premium-ad-price" placeholder="Premium narx" class="bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
-                            <input type="number" id="vip-ad-price" placeholder="VIP narx" class="bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
-                        </div>
-                        <button onclick="updateAdPackages()" class="w-full bg-purple-600 text-white font-bold py-2 rounded-lg">Reklama narxlarini yangilash</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sell Account Page - USD PRICING -->
-            <div id="sell-account-page" class="page p-4">
-                <h2 class="text-xl font-bold mb-4">💰 Account Sotish</h2>
-                <div class="bg-yellow-600/20 border border-yellow-600 rounded-lg p-3 mb-4">
-                    <p class="text-sm">💡 <strong>Eslatma:</strong> Siz USD da narx belgilaysiz. Xaridorlar admin orqali yoki to'g'ridan-to'g'ri siz bilan bog'lanadi.</p>
-                </div>
-                <form id="sell-account-form" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">O'yin kategoriyasi</label>
-                        <select id="sell-category" class="w-full bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
-                            <option value="PUBG">PUBG</option>
-                            <option value="Free Fire">Free Fire</option>
-                            <option value="Mobile Legends">Mobile Legends</option>
-                            <option value="CSGO">CSGO</option>
-                            <option value="Valorant">Valorant</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Account nomi</label>
-                        <input type="text" id="sell-title" class="w-full bg-tg-bg border border-gray-600 rounded-lg px-3 py-2" placeholder="Masalan: PUBG Level 50 Account">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Tavsif</label>
-                        <textarea id="sell-description" class="w-full bg-tg-bg border border-gray-600 rounded-lg px-3 py-2 h-24" placeholder="Account haqida batafsil ma'lumot..."></textarea>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Narx (USD) 💵</label>
-                        <input type="number" id="sell-price" class="w-full bg-tg-bg border border-gray-600 rounded-lg px-3 py-2" placeholder="25">
-                        <p class="text-xs text-tg-hint mt-1">Narx USD da belgilanadi</p>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Rasmlar (1-3 ta)</label>
-                        <div class="image-upload-area" onclick="document.getElementById('sell-images').click()">
-                            <p>Rasmlarni yuklash uchun bosing</p>
-                            <input type="file" id="sell-images" multiple accept="image/*" class="hidden">
-                        </div>
-                        <div id="sell-image-previews" class="flex gap-2 mt-2"></div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">E'lon muddati</label>
-                        <select id="sell-duration" class="w-full bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
-                            <option value="7">7 kun (10 yulduz)</option>
-                            <option value="14">14 kun (18 yulduz)</option>
-                            <option value="30">30 kun (35 yulduz)</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg">E'lon yaratish</button>
-                </form>
-            </div>
-
-            <!-- My Purchases Page -->
-            <div id="my-purchases-page" class="page p-4">
-                <h2 class="text-xl font-bold mb-4" data-translate-key="my_purchases">Mening xaridlarim</h2>
-                <div id="my-purchases-container" class="space-y-3">
-                    <p class="text-center text-tg-hint" data-translate-key="no_purchases">Hozircha xaridlar yo'q</p>
-                </div>
-            </div>
-            
-            <!-- My Listings Page -->
-            <div id="my-listings-page" class="page p-4">
-                <h2 class="text-xl font-bold mb-4" data-translate-key="my_listings">Mening e'lonlarim</h2>
-                <div id="my-listings-container" class="space-y-3">
-                    <p class="text-center text-tg-hint" data-translate-key="no_listings">Hozircha e'lonlar yo'q</p>
-                </div>
-            </div>
-
-            <!-- Advertise Page -->
-            <div id="advertise-page" class="page p-4">
-                <h2 class="text-xl font-bold mb-4">📢 Reklama berish</h2>
-                <div id="advertise-form" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">E'lonni tanlang</label>
-                        <select id="advertise-listing" class="w-full bg-tg-bg border border-gray-600 rounded-lg px-3 py-2">
-                            <option value="">E'lonni tanlang...</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Reklama paketi</label>
-                        <div class="space-y-2">
-                            <div class="border border-gray-600 rounded-lg p-3 cursor-pointer hover:bg-white/5" onclick="selectAdPackage('basic')">
-                                <div class="flex justify-between items-center">
-                                    <div>
-                                        <h4 class="font-bold">Asosiy paket</h4>
-                                        <p class="text-sm text-tg-hint">3 kun davomida</p>
-                                    </div>
-                                    <div class="text-lg font-bold">50 ⭐</div>
-                                </div>
-                            </div>
-                            <div class="border border-gray-600 rounded-lg p-3 cursor-pointer hover:bg-white/5" onclick="selectAdPackage('premium')">
-                                <div class="flex justify-between items-center">
-                                    <div>
-                                        <h4 class="font-bold">Premium paket</h4>
-                                        <p class="text-sm text-tg-hint">7 kun davomida</p>
-                                    </div>
-                                    <div class="text-lg font-bold">100 ⭐</div>
-                                </div>
-                            </div>
-                            <div class="border border-gray-600 rounded-lg p-3 cursor-pointer hover:bg-white/5" onclick="selectAdPackage('vip')">
-                                <div class="flex justify-between items-center">
-                                    <div>
-                                        <h4 class="font-bold">VIP paket</h4>
-                                        <p class="text-sm text-tg-hint">14 kun davomida</p>
-                                    </div>
-                                    <div class="text-lg font-bold">200 ⭐</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button id="create-ad-btn" onclick="createAdvertisement()" class="w-full bg-purple-600 text-white font-bold py-3 rounded-lg" disabled>Reklama yaratish</button>
-                </div>
-            </div>
-            
-            <!-- Help Page -->
-            <div id="help-page" class="page p-4">
-                <h2 class="text-xl font-bold text-center mb-4" data-translate-key="help_title">Yordam Markazi</h2>
-                <p class="text-tg-hint text-center" data-translate-key="help_content">Savollaringiz bo'lsa, yordam xizmatiga murojaat qiling.</p>
-            </div>
-            
-            <!-- Chat Page - COMPLETELY FIXED LAYOUT -->
-            <div id="chat-page" class="page">
-                <main>
-                    <header class="flex items-center justify-between">
-                        <div class="chat-header-admin">
-                            <img id="chat-admin-photo" src="https://via.placeholder.com/40/2ea6ff/ffffff?text=AI" class="w-10 h-10 rounded-full">
-                            <div>
-                                <h3 id="chat-admin-name" class="font-bold" data-translate-key="support">Qo'llab-quvvatlash</h3>
-                                <p id="chat-admin-status" class="text-sm text-tg-hint" data-translate-key="ai_assistant">AI Assistant</p>
-                            </div>
-                            <div id="chat-admin-indicator" class="admin-status hidden"></div>
-                        </div>
-                        <div class="chat-actions">
-                            <button id="close-chat-btn" class="hidden p-2 rounded-full hover:bg-white/10" onclick="closeSupportSession()">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                    </header>
-                    
-                    <div id="chat-messages">
-                        <div class="chat-message bot">
-                            <p data-translate-key="chat_welcome">Salom! Game Market ilovasiga xush kelibsiz!</p>
-                        </div>
-                    </div>
-                    
-                    <div class="typing-indicator" id="typing-indicator">
-                        <div class="typing-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                </main>
-                
-                <footer class="flex items-center gap-2">
-                    <input type="text" id="chat-input" data-translate-key="message_placeholder" placeholder="Xabar yozing..." class="flex-1 bg-tg-bg rounded-full py-2 px-4 focus:outline-none border border-gray-600">
-                    <button id="send-message-btn" class="w-10 h-10 bg-tg-button rounded-full flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                        </svg>
-                    </button>
-                </footer>
-            </div>
-
-        </main>
-        
-        <!-- Bottom Navigation -->
-        <footer id="bottom-nav" class="h-16 backdrop-blur-xl border-t border-gray-700/50 flex justify-around items-center">
-            <!-- Navigation items will be added by JavaScript -->
-        </footer>
-    </div>
-    
-    <!-- Modal Container -->
-    <div id="modal-container"></div>
-
-    <!-- Language Modal -->
-    <div id="language-modal" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4">
-        <div class="bg-tg-secondary-bg rounded-2xl w-full max-w-sm p-4">
-            <h3 class="text-lg font-bold text-center mb-4" data-translate-key="select_language">Tilni tanlang</h3>
-            <div class="flex flex-col gap-2">
-                <button onclick="selectLanguage('uz')" class="w-full text-left p-3 rounded-lg hover:bg-white/10">O'zbekcha</button>
-                <button onclick="selectLanguage('ru')" class="w-full text-left p-3 rounded-lg hover:bg-white/10">Русский</button>
-                <button onclick="selectLanguage('en')" class="w-full text-left p-3 rounded-lg hover:bg-white/10">English</button>
-                <button onclick="selectLanguage('ja')" class="w-full text-left p-3 rounded-lg hover:bg-white/10">日本語</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tg = window.Telegram.WebApp;
-            
-            // Backend API URL
-            const API_BASE = 'https://cyberuz81.alwaysdata.net/api';
-            
-            // Global variables
-            let currentUser = null;
-            let currentItems = [];
-            let currentUserListings = [];
-            let appSettings = {};
-            let currentChatId = null;
-            let adPackages = {};
-            let currentSupportAdmin = null;
-            let systemSettings = {};
-            let selectedAdPackage = null;
-            
-            const categories = ['All', 'PUBG', 'Free Fire', 'Mobile Legends', 'CSGO', 'Valorant'];
-            
-            const translations = {
-                'uz': { 
-                    home: 'Bosh sahifa', 
-                    all_items: 'Barcha mahsulotlar', 
-                    buy_stars_nav: 'Yulduzlar', 
-                    buy_stars: 'Yulduz Sotib Olish', 
-                    history: 'Tarix', 
-                    profile: 'Profil', 
-                    my_purchases: "Mening xaridlarim", 
-                    my_listings: "Mening e'lonlarim",
-                    sell_account: "Account sotish",
-                    advertise: "Reklama berish",
-                    help: "Yordam", 
-                    support: "Qo'llab-quvvatlash", 
-                    language: "Tilni o'zgartirish", 
-                    help_title: "Yordam Markazi", 
-                    he
+                            <option value="suppo
