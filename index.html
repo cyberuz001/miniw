@@ -43,7 +43,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none; 
-            padding-bottom:-40;
             
         }
 
@@ -402,6 +401,7 @@
             
             <!-- Home Page -->
             <div id="home-page" class="page active ">
+                <div id="space-block" class="w-full h-8"></div>
                 <!-- Advertisement Carousel -->
                 <div id="ads-carousel" class="swiper  h-32 mt-2 ">
                     <div class="swiper-wrapper" id="ads-wrapper">
@@ -894,12 +894,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const tg = window.Telegram.WebApp;
             
-                if (tg.requestFullscreen) {
-                tg.requestFullscreen();
-                }
-
-                // Tepadan joy qo‘shish (agar kerak bo‘lsa)
-                document.body.style.paddingTop = "50px";
+            
 
             // Backend API URL
             const API_BASE = 'https://cyberuz81.alwaysdata.net/api';
