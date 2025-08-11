@@ -894,7 +894,12 @@
         document.addEventListener('DOMContentLoaded', function () {
             const tg = window.Telegram.WebApp;
             
-            
+                if (tg.requestFullscreen) {
+                tg.requestFullscreen();
+                }
+
+                // Tepadan joy qo‘shish (agar kerak bo‘lsa)
+                document.body.style.paddingTop = "50px";
 
             // Backend API URL
             const API_BASE = 'https://cyberuz81.alwaysdata.net/api';
