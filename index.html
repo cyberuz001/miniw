@@ -894,9 +894,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             const tg = window.Telegram.WebApp;
            
-            const headerHeight = 48; 
-        
-            document.querySelector("body").style.paddingTop = `${headerHeight}px`;
+            const headerOffset = 56; // Telegram header taxminan 56px
+            document.querySelectorAll(".page").forEach(page => {
+            page.style.paddingTop = `${headerOffset}px`;
+            });
             // Backend API URL
             const API_BASE = 'https://cyberuz81.alwaysdata.net/api';
             
