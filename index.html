@@ -893,7 +893,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const tg = window.Telegram.WebApp;
-            
+           
+            const headerHeight = 48; 
+        
+            document.querySelector("body").style.paddingTop = `${headerHeight}px`;
             // Backend API URL
             const API_BASE = 'https://cyberuz81.alwaysdata.net/api';
             
