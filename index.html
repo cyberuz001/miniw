@@ -400,7 +400,7 @@
         <main class="flex-grow overflow-y-auto">
             
             <!-- Home Page -->
-            <div id="home-page" class="page active">
+            <div id="home-page" class="page active ">
                 <!-- Advertisement Carousel -->
                 <div id="ads-carousel" class="swiper  h-32 mt-2 ">
                     <div class="swiper-wrapper" id="ads-wrapper">
@@ -892,8 +892,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const tg = window.Telegram.WebApp;
-           
             
+            
+
             // Backend API URL
             const API_BASE = 'https://cyberuz81.alwaysdata.net/api';
             
@@ -2135,6 +2136,7 @@
                     
                     if (tg && tg.initDataUnsafe) {
                         tg.ready();
+                        tg.setHeaderColor('secondary_bg_color');
                         tg.expand();
                         tg.onEvent('backButtonClicked', navigateBack);
                         
